@@ -1,0 +1,13 @@
+.sidebarrow{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 10px;
+    align-content: center;
+    font-family: "Helvetica";
+    cursor: pointer;    
+}
+
+.sidebarrow:hover{
+    background-color: #d32f2f;
+  }

@@ -1,0 +1,6 @@
+.sidebar{
+    flex: 0.2;
+    background-color: #b71c1c;
+    color: aliceblue;
+    align-items: center;
+}

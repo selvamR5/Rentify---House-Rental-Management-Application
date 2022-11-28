@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+
+import React, { useState } from 'react';
+import Navbar from './components/inc/navbar/Navbar.js';
+import Sidebar from './components/inc/sidebar/Sidebar.js';
+import RecomApartments from './components/inc/recom_apartments/RecomApartments.js';
 import './App.css';
 
+
+
 function App() {
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar setShowSidebar={setShowSidebar} showSidebar={showSidebar}/>
+      <div className='app_page'>
+        <Sidebar showSidebar={showSidebar}/>
+        <RecomApartments/>
+      </div>
+      
+      {/* recommended houses */}
+      
+  
     </div>
+
   );
 }
 
