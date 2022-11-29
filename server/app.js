@@ -3,11 +3,31 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+//MongoDB connection Part
+const { mongoDB } = require('./utils/dbConfig');
+
+var options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}
+
+mongoose.connect(mongoDB, options, (err, res) => {
+    if(err){
+        console.log(err);
+        console.log('MongoDB connection failed');
+    }
+    else {
+        console.log('MongoDB connected');
+    }
+})
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,5 +57,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(3001, () => {
+  console.log("Server Listening on port 3001")
+})
 
 module.exports = app;
