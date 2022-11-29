@@ -13,7 +13,7 @@ function App() {
 
   
   return (
-    <div>
+    <div className='App'>
       <Navbar setShowSidebar={setShowSidebar} showSidebar={showSidebar}/>
       <div className='app_page'>
         <Sidebar showSidebar={showSidebar}/>
