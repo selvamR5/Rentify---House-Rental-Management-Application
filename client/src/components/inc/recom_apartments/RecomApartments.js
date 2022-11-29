@@ -6,7 +6,7 @@ import Card from "./Card";
 function RecomApartments() {
   return (
     <div className='recomapartments'>
-      <h2>Explore Rentals Near You</h2>
+      <h1>Explore Rentals Near You</h1>
       <div className='rentalSection'>
       <Card
                 src="https://a0.muscache.com/im/pictures/miso/Hosting-740807800483774592/original/6491cdaf-0dfa-46ad-b93a-a3f05382cbb1.jpeg?im_w=720"

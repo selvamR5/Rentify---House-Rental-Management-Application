@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import "./Navbar.css";
 import MenuIcon from '@mui/icons-material/Menu';
 import img from "../../images/logomain.png";
@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 import Modal from '../loginSignupModal/Modal';
-import "../loginSignupModal/style.css"
+import "../loginSignupModal/style.css";
 
 
 const color = red[900];

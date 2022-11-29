@@ -15,10 +15,12 @@ function App() {
   
   return (
     <div className='App'>
+      
       <Navbar setShowSidebar={setShowSidebar} showSidebar={showSidebar}/>
       {/* <Banner/> */}
       <div className='app_page'>
         <Sidebar showSidebar={showSidebar}/>
+       
        
         <RecomApartments/>
         

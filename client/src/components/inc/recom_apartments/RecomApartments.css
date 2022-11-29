@@ -1,12 +1,16 @@
 .recomapartments{
     background-color: whitesmoke;
+    position:absolute;
+    padding-top: 50px;
+    
 }
-.recomapartments >h2{
+.recomapartments >h1{
         font-size: xx-large;
-        padding-left: 5%;
+        /* padding-left: 5%; */
         font-family: 'Times New Roman', Times, serif;
-        font-weight: 500;
+        font-weight:bold;
         color: rgb(126, 27, 27);
+        
 }
 
 .rentalSection{
