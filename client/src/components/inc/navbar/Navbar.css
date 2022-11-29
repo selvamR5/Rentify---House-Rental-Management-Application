@@ -4,9 +4,12 @@
     justify-content: space-between;
     padding: 15px;
     position: sticky;
+    position: -webkit-sticky;
     top:0;
     z-index:100;
-    background-color:rgb(247, 239, 239);
+    background-image: linear-gradient(to bottom, #f4e3e6, #f2e3e6, #f0e3e6, #eee3e5, #ece3e5);
+    
+    /* background-color:rgb(247, 239, 239);  */
     /* width: 100%; */
    
     
@@ -42,7 +45,7 @@
     align-items:center;
     width: 50%;
     border: 1px solid #d76565;
-    border-radius: 10px;
+    border-radius: 40px;
     height: 30px;
     padding: 10px;
     background-color: white;

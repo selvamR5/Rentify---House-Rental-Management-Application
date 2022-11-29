@@ -8,6 +8,7 @@ import './App.css';
 
 
 
+
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -15,10 +16,14 @@ function App() {
   return (
     <div className='App'>
       <Navbar setShowSidebar={setShowSidebar} showSidebar={showSidebar}/>
+      {/* <Banner/> */}
       <div className='app_page'>
         <Sidebar showSidebar={showSidebar}/>
+       
         <RecomApartments/>
+        
       </div>
+   
       
       {/* recommended houses */}
       
