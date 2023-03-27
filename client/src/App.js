@@ -1,37 +1,23 @@
 // import logo from './logo.svg';
 
-import React, { useState } from 'react';
+import React from 'react';
+import Home from './Home.js'
 import Navbar from './components/inc/navbar/Navbar.js';
-import Sidebar from './components/inc/sidebar/Sidebar.js';
-import RecomApartments from './components/inc/recom_apartments/RecomApartments.js';
+import Maintenenace from './components/inc/manageProperty/Maintenance.js'
 import './App.css';
-
-
+import { Routes, Route } from 'react-router-dom';
 
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(false);
-
-  
   return (
-    <div className='App'>
-      
-      <Navbar setShowSidebar={setShowSidebar} showSidebar={showSidebar}/>
-      {/* <Banner/> */}
-      <div className='app_page'>
-        <Sidebar showSidebar={showSidebar}/>
-       
-       
-        <RecomApartments/>
-        
-      </div>
-   
-      
-      {/* recommended houses */}
-      
-  
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path='/'  element={<Home />}/>
+        <Route path='/manage' element={<Maintenenace/>}/>
+        <Route />
+      </Routes>
     </div>
-
   );
 }
 

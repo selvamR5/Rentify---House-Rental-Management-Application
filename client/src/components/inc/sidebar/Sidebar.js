@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import SidebarRow from './SidebarRow';
 
@@ -8,11 +9,11 @@ function Sidebar(props) {
     }
     return (
         <div className='sidebar'>
-            <SidebarRow title = "Home"/>
-            <SidebarRow title = "Add a property"/>
-            <SidebarRow title = "Manage Property"/>
-            <SidebarRow title = "Tenants portal"/>
-            <SidebarRow title = "Landlords portal"/>
+            <Link><SidebarRow title = "Home"/></Link>
+            <Link><SidebarRow title = "Add a property"/></Link>
+            <Link to='/manage'><SidebarRow title = "Manage Property"/></Link>
+            <Link><SidebarRow title = "Tenants portal"/></Link>
+            <Link><SidebarRow title = "Landlords portal"/></Link>
         </div>
     );
 }

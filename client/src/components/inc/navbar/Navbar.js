@@ -8,6 +8,8 @@ import { styled } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 import Modal from '../loginSignupModal/Modal';
 import "../loginSignupModal/style.css";
+import Sidebar from '../sidebar/Sidebar.js';
+import { Link } from 'react-router-dom';
 
 
 const color = red[900];
@@ -19,19 +21,20 @@ const ColorButton = styled(Button)(({ theme }) => ({
       backgroundColor: red[700],
     
     },
-  }));
+}));
 
-function Navbar(props) {
+function Navbar() {
   
   const [show, setShow] = useState(false);
   const [form, setForm] = useState("");
+  const [showSidebar, setShowSidebar] = useState(false);
 
   return (
     <div>
       <div className = "header">
         <div className='header__left'>
-          <MenuIcon className="menu"onClick={() => {props.setShowSidebar(!props.showSidebar)}}/>
-          <img className = "header__logo" src = {img} alt = ""/>
+          <MenuIcon className="menu"onClick={() => {setShowSidebar(!showSidebar)}}/>
+          <Link to='/'><img className = "header__logo" src = {img} alt = ""/></Link>
         </div>
         
         <div className='header__input'>
@@ -57,6 +60,7 @@ function Navbar(props) {
           </ColorButton>
         </div>
       </div>
+      <Sidebar showSidebar={showSidebar}/>
       <Modal show={show} setShow={setShow} form={form} setForm={setForm}/>
     </div>
   );
