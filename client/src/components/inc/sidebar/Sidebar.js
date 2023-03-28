@@ -4,12 +4,13 @@ import './Sidebar.css';
 import SidebarRow from './SidebarRow';
 
 function Sidebar(props) {
+
     if(!props.showSidebar){
         return null;
     }
     return (
         <div className='sidebar'>
-            <Link><SidebarRow title = "Home"/></Link>
+            <Link to='/'><SidebarRow title = "Home"/></Link>
             <Link><SidebarRow title = "Add a property"/></Link>
             <Link to='/manage'><SidebarRow title = "Manage Property"/></Link>
             <Link><SidebarRow title = "Tenants portal"/></Link>

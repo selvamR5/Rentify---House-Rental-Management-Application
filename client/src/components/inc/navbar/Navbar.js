@@ -33,7 +33,7 @@ function Navbar() {
     <div>
       <div className = "header">
         <div className='header__left'>
-          <MenuIcon className="menu"onClick={() => {setShowSidebar(!showSidebar)}}/>
+          <MenuIcon className="menu" onClick={() => {setShowSidebar(!showSidebar)}}/>
           <Link to='/'><img className = "header__logo" src = {img} alt = ""/></Link>
         </div>
         
@@ -60,7 +60,7 @@ function Navbar() {
           </ColorButton>
         </div>
       </div>
-      <Sidebar showSidebar={showSidebar}/>
+      <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
       <Modal show={show} setShow={setShow} form={form} setForm={setForm}/>
     </div>
   );
