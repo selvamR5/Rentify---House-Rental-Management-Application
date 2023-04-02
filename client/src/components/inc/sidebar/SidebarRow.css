@@ -4,7 +4,7 @@
     /* align-content: flex-start; */
     height: 30px;
     width: 180px;
-    padding: 10px ;
+    padding: 10px;
     /* align-content: center; */
     font-family: "Helvetica";
     cursor: pointer; 
@@ -12,7 +12,7 @@
     font-size: 20px;
     /* font-weight: 300;  */
     background-color: #b71c1c;
-    color: aliceblue;
+    color: white;
     text-align: left;
     
 }

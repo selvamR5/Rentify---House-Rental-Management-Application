@@ -29,6 +29,8 @@ function Form(props){
     const [phone, setPhone] = useState("");
     const [radio, setRadio] = useState("");
 
+    console.log(radio)
+
     function registerUser(e){
         e.preventDefault();
     }
