@@ -15,7 +15,7 @@ function RentProperty(){
             {a.map(i => {
                 return (
                     <Grid item xs={12} md={6} lg={4}>
-                        <Link to='/maintenance'>
+                        <Link to='/manage/dashboard'>
                             <Card 
                             src="https://a0.muscache.com/im/pictures/miso/Hosting-740807800483774592/original/6491cdaf-0dfa-46ad-b93a-a3f05382cbb1.jpeg?im_w=720"
                             address="181 E Santa Clara St, San Jose, CA 95113"

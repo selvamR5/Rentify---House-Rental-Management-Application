@@ -7,21 +7,21 @@ export const SideNavData = [
     {
         title: "Payments",
         icon: <AttachMoneyIcon />,
-        link: "/"
+        link: "/manage/dashboard/payments"
     },
     {
         title: "Maintenance",
         icon: <EngineeringIcon />,
-        link: "/"
+        link: "/manage/dashboard/maintenance"
     },
     {
         title: "Chat",
         icon: <QuestionAnswerIcon />,
-        link: "/"
+        link: "/manage/dashboard/chat"
     },
     {
         title: "Documents",
         icon: <AutoStoriesIcon />,
-        link: "/"
+        link: "/manage/dashboard/documents"
     }
 ]

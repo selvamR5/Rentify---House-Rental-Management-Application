@@ -16,7 +16,11 @@ function App() {
       <Routes>
         <Route path='/'  element={<Home />}/>
         <Route path='/manage' element={<RentProperty/>}/>
-        <Route path='/maintenance' element={<Maintenenace/>}/>
+        <Route path='/manage/dashboard' element={<Maintenenace/>}/>
+        <Route path='/manage/dashboard/payments' element={<Maintenenace/>}/>
+        <Route path='/manage/dashboard/maintenance' element={<Maintenenace/>}/>
+        <Route path='/manage/dashboard/chat' element={<Maintenenace/>}/>
+        <Route path='/manage/dashboard/documents' element={<Maintenenace/>}/>
       </Routes>
     </div>
   );
