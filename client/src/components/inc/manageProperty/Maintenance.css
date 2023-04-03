@@ -1,0 +1,34 @@
+.sidenav{
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    background-color: brown;
+    min-width: 200px;
+    padding-top: 20px;
+}
+
+.sidenavdata{
+    height: 50px;
+    width: 100%;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    font-family: "Helvetica";
+    font-size: 20px;
+    color: white;
+    align-items: center;
+}
+
+.sidenavdata:hover{
+    background-color: rgb(213, 51, 51);
+}
+
+.sidenavdata #icon{
+    flex: 30%;
+    display: grid;
+    place-items: center;
+}
+
+.sidenavdata #title{
+    flex: 70%;
+}
