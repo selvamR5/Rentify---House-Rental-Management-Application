@@ -30,6 +30,7 @@ var options = {
 }
 
 mongoose.connect(mongoDB, options, (err, res) => {
+  console.log(mongoDB);
     if(err){
         console.log(err);
         console.log('MongoDB connection failed');
