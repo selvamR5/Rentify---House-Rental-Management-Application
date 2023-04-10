@@ -1,9 +1,8 @@
 .sidenav{
     height: 100%;
-    width: 15%;
+    width: 300px;
     position: fixed;
     background-color: brown;
-    min-width: 200px;
     padding-top: 20px;
 }
 
@@ -31,4 +30,8 @@
 
 .sidenavdata #title{
     flex: 70%;
+}
+
+.sidenav #active{
+    background-color: rgb(213, 51, 51);
 }

@@ -9,8 +9,6 @@
     top:0;
     z-index:100;
     background-image: linear-gradient(to bottom, #f4e3e6, #f2e3e6, #f0e3e6, #eee3e5, #ece3e5);
-    
-    
 }
 .header__left .menu{
     cursor: pointer;
@@ -61,4 +59,29 @@ height: 50px;
     background-color: white;
     border:None;
     color:#d50000;
+}
+
+.account{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.account #name{
+    font-family: "Helvetica";
+    font-size: 20px;
+    color: #a62a2a;
+}
+
+.account #arrowIcon{
+    cursor: pointer;
+}
+
+.account-menu{
+    position: fixed;
+    margin-top: 36px;
+    background-color: whitesmoke;
+    align-items: center;
+    z-index: 1;
+    height: 50px;
 }

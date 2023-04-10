@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import './style.css'
 
 function Field(props) {
@@ -28,6 +29,8 @@ function Form(props) {
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
     const [radio, setRadio] = useState("");
+
+    const dispatch = useDispatch();
 
     function registerUser(e) {
         e.preventDefault();
