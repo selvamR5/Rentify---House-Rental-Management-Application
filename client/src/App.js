@@ -8,6 +8,8 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import RentProperty from './components/inc/manageProperty/RentProperty.js';
 import Payments from './components/inc/manageProperty/Payments.js';
+import AddPropertyForm from './components/inc/addProperty/addProperty.js';
+
 
 
 function App() {
@@ -22,9 +24,10 @@ function App() {
         <Route path='/manage-rental/maintenance' element={<Maintenance/>}/>
         <Route path='/manage-rental/chat' element={<Maintenance/>}/>
         <Route path='/manage-rental/documents' element={<Maintenance/>}/>
+        <Route path='/add-property' element={<AddPropertyForm/>}/>
       </Routes>
     </div>
-  );
+  ); 
 }
 
 export default App;

@@ -11,7 +11,7 @@ function Sidebar(props) {
     return (
         <div className='sidebar'>
             <Link to='/'><SidebarRow title = "Home"/></Link>
-            <Link><SidebarRow title = "Add a property"/></Link>
+            <Link to='/add-property'><SidebarRow title = "Add a property"/></Link>
             <Link to='/manage-rental'><SidebarRow title = "Manage Property"/></Link>
             <Link><SidebarRow title = "Tenants portal"/></Link>
             <Link><SidebarRow title = "Landlords portal"/></Link>
