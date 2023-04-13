@@ -34,6 +34,9 @@ const leaseSchema = new mongoose.Schema({
       type: Number,
       required: true
     }
+  },
+  {
+      versionKey: false
   });
 
   const leaseModel = mongoose.model('lease', leaseSchema);

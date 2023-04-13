@@ -20,6 +20,9 @@ const paymentsSchema = new mongoose.Schema({
       type: Date,
       required: true
     }
+  },
+  {
+      versionKey: false
   });
 
   const paymentsModel = mongoose.model('payments', paymentsSchema);

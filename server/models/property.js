@@ -16,7 +16,7 @@ var propertySchema = new Schema({
     rentPrice: {type:Number,required:true},
     securityDeposit: {type:Number,required:true},
     durationfLease: {type:Number,required:true},
-    contact: {type:Number,required:true},
+    contact: {type: String,required:true},
     availabilityDate: {type: Date, default: ''},
     isAvailable: {type:Boolean,required:true},
     petFriendly: {type:Boolean,required:true},
@@ -27,13 +27,10 @@ var propertySchema = new Schema({
     tenant: {
         type:Schema.Types.ObjectId,
         ref:"users",
-        required: false
     },
     createdAt: { type: Date, default: Date.now},
     updatedAt: { type: Date, default: Date.now},
     touravailability: {type: String, required:false}
-
-
 },
     {
         versionKey: false
