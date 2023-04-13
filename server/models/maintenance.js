@@ -24,6 +24,10 @@ const maintenanceSchema = new mongoose.Schema({
       type: String,
       required: true
     },
+    status: {
+      type: String,
+      required: true
+    },
     subCategory: {
       type: String,
       required: true
@@ -44,6 +48,9 @@ const maintenanceSchema = new mongoose.Schema({
       type: String,
       required: false
     }
+  },
+  {
+      versionKey: false
   });
   
   module.exports = mongoose.model('Maintenance', maintenanceSchema);
