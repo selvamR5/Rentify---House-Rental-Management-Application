@@ -24,6 +24,10 @@ const maintenanceSchema = new mongoose.Schema({
       type: String,
       required: true
     },
+    status: {
+      type: String,
+      required: true
+    },
     subCategory: {
       type: String,
       required: true

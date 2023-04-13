@@ -25,10 +25,7 @@ const leaseSchema = new mongoose.Schema({
       type: Date,
       required: false
     },
-    propertyId: {
-      type: String,
-      required: true
-    },
+    propertyId: { type:Schema.Types.ObjectId, ref:"property" },
     securityDepositAmount: {
       type: Number,
       required: true
