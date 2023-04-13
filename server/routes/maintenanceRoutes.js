@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const mongoose = require('mongoose');
 const Maintenance = require('../models/maintenance');
 
 
@@ -7,8 +8,8 @@ const Maintenance = require('../models/maintenance');
 router.post("/create", async (req, res) => {
   const { userId, leaseId, title, status, description, category, subCategory, photos, emergency, entryInstructions, entryPreferences } = req.body;
   const maintenance = new Maintenance({
-    userId,
-    leaseId,
+    userId: mongoose.Types.ObjectId(userId.trim()),
+    leaseId: mongoose.Types.ObjectId(leaseId.trim()),
     title,
     description,
     category,
@@ -28,7 +29,7 @@ router.post("/create", async (req, res) => {
 })
 
 // Get all maintenance requests
-router.get("/maintenance", async (req, res) => {
+router.get("/get", async (req, res) => {
     try {
     const maintenances = await Maintenance.find();
     res.json(maintenances);
@@ -38,7 +39,7 @@ router.get("/maintenance", async (req, res) => {
 })
 
 // Get a specific maintenance request by ID
-router.get('/maintenance/id', async (req, res) => {
+router.get('/get/:id', async (req, res) => {
     const { id } = req.params;
   try {
     const maintenance = await Maintenance.findById(id);
@@ -52,7 +53,7 @@ router.get('/maintenance/id', async (req, res) => {
   }
 })
 
-router.get('/maintenance/user/:userId', async (req, res) => {
+router.get('/get/user/:userId', async (req, res) => {
     try {
       const maintenances = await Maintenance.find({ userId: req.params.userId });
       res.status(200).json(maintenances);
@@ -64,7 +65,7 @@ router.get('/maintenance/user/:userId', async (req, res) => {
 
 
 // Update a specific maintenance request by ID
-router.put('/maintenance/id', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
     const { id } = req.params;
   const { userId, leaseId, title, status, description, category, subCategory, photos, emergency, entryInstructions, entryPreferences } = req.body;
   try {
@@ -92,7 +93,7 @@ router.put('/maintenance/id', async (req, res) => {
 })
 
 // Delete a specific maintenance request by ID
-router.delete('/maintenance/id', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
     const { id } = req.params;
   try {
     const maintenance = await Maintenance.findById(id);
