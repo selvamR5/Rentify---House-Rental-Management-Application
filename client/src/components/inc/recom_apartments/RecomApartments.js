@@ -1,6 +1,7 @@
 import React from 'react';
 import './RecomApartments.css';
 import Card from "./Card";
+import { Link } from 'react-router-dom';
 
 
 function RecomApartments() {
@@ -8,6 +9,8 @@ function RecomApartments() {
     <div className='recomapartments'>
       <h1>Explore Rentals Near You</h1>
       <div className='rentalSection'>
+
+    <Link to = 'detailed-propertyInfo'>
       <Card
                 src="https://a0.muscache.com/im/pictures/miso/Hosting-740807800483774592/original/6491cdaf-0dfa-46ad-b93a-a3f05382cbb1.jpeg?im_w=720"
                 address="181 E Santa Clara St, San Jose, CA 95113"
@@ -15,6 +18,7 @@ function RecomApartments() {
                 beds="2 Beds"
                 price="$2,700"
             />
+      </Link>
            <Card
                 src="https://a0.muscache.com/im/pictures/miso/Hosting-717383292590854818/original/b7582c33-4bc8-4247-bafd-f9f7a23fe471.jpeg?im_w=720"
                 title="101 San Fernando"

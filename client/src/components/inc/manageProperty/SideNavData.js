@@ -19,7 +19,7 @@ export const SideNavData = [
     {
         title: "Maintenance",
         icon: <EngineeringIcon />,
-        link: "/manage-rental/maintenance"
+        link: "/manage-rental/maintenancedashboard"
     },
     {
         title: "Chat",
