@@ -19,6 +19,7 @@ function RecomApartments() {
                 price="$2,700"
             />
       </Link>
+      <Link>
            <Card
                 src="https://a0.muscache.com/im/pictures/miso/Hosting-717383292590854818/original/b7582c33-4bc8-4247-bafd-f9f7a23fe471.jpeg?im_w=720"
                 title="101 San Fernando"
@@ -26,6 +27,9 @@ function RecomApartments() {
                 beds="2 Beds"
                 price="$2,600"
             />
+          </Link>
+          <Link>
+          
             <Card
                 src="https://a0.muscache.com/im/pictures/fdb46962-10c1-45fc-a228-d0b055411448.jpg?im_w=720"
                 address="415 N Santa Clara St, San Jose, CA 95112"
@@ -33,8 +37,10 @@ function RecomApartments() {
                 beds="3 Beds"
                 price="$3,700"
             />
+          </Link>
         </div>
       <div className='rentalSection'>
+        <Link>
       <Card
                 src="https://media.nomadicmatt.com/2019/airbnb_breakup3.jpg"
                 title="Cahill Park"
@@ -42,6 +48,9 @@ function RecomApartments() {
                 beds="2 Beds"
                 price="$2,700"
             />
+        </Link>
+        <Link>
+    
             <Card
             src="https://thespaces.com/wp-content/uploads/2017/08/Courtesy-of-Airbnb.jpg"
             title="Colonnade Apartments"
@@ -49,6 +58,9 @@ function RecomApartments() {
             beds="2 Beds"
             price="$2,700"
         />
+            </Link>
+          <Link>
+         
         <Card
         src="https://media.nomadicmatt.com/2018/apartment.jpg"
         address="Willow Glean"
@@ -56,6 +68,7 @@ function RecomApartments() {
         beds="3 Beds"
         price="$4,100"
     />
+     </Link>
       </div>
 
     </div>
