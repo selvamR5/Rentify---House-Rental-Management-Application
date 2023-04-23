@@ -7,6 +7,11 @@
   cursor: pointer;
 }
 
+/* .image{
+  width: 256px;
+  height: 180px;
+} */
+
 .card:hover {
   transform: scale(1.07);
 }

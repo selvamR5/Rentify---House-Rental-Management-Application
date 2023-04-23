@@ -41,27 +41,34 @@ function Payments({ payments = [{id: 1, amount: 3500, description: "Rent", dueDa
                         </div>
                         ))}
                     </div>
+            
                 <div className="previous-transactions">
-                <div className="transactions-container">
-                    <h1>Previous Transactions</h1>
-                    <button onClick={() => setShowPreviousTransactions(!showPreviousTransactions)}>
-                    {showPreviousTransactions ? 'Hide Previous Transactions' : 'Show Previous Transactions'}
-                    </button>
-                    {showPreviousTransactions && (
-                    <div className="previous-transactions-list">
-                        {payments.map((payment) => (
-                        <div key={payment.id} className="previous-transaction">
-                            <div className="previous-transaction-details">
-                            <div className="previous-transaction-amount">${payment.amount}</div>
-                            <div className="previous-transaction-description">{payment.description}</div>
-                            </div>
-                            <div className="previous-transaction-date">{payment.date}</div>
-                        </div>
-                        ))}
-                    </div>
-                    )}
-                </div>
-                </div>
+                    <div className="transactions-container">
+                        <h1>Previous Transactions</h1>
+
+                        <button onClick={() => setShowPreviousTransactions(!showPreviousTransactions)}>
+      {showPreviousTransactions ? 'Hide Previous Transactions' : 'Show Previous Transactions'}
+    </button>
+    {showPreviousTransactions && (
+      <div className="previous-transactions-list">
+        <div className="previous-transaction previous-transaction-header">
+            <div className="previous-transaction-amount-heading">Amount</div>
+            <div className="previous-transaction-description-heading">Description</div>
+            <div className="previous-transaction-date-heading">Date</div>
+        </div>
+        {payments.map((payment) => (
+          <div key={payment.id} className="previous-transaction">
+            <div className="previous-transaction-details">
+              <div className="previous-transaction-amount">${payment.amount}</div>
+              <div className="previous-transaction-description">{payment.description}</div>
+              <div className="previous-transaction-date">{payment.date}</div>
+          </div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</div>
                 </div>  
         </div>
     );
