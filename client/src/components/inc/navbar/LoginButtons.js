@@ -10,6 +10,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Link } from 'react-router-dom';
 import { change} from '../../../redux/userId';
+import { toggleModal } from '../../../redux/modalShow';
+import { FormType } from '../../../redux/form';
 
 const color = red[900];
 
@@ -28,8 +30,6 @@ function LoginButtons(props) {
     const dispatch = useDispatch();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    console.log(userId);
-
     function Logout(){
         dispatch(change(""));
         setIsMenuOpen(!isMenuOpen);
@@ -40,7 +40,7 @@ function LoginButtons(props) {
             <div>
                 <div className='account'>
                     <div id="personIcon"><PersonIcon fontSize='medium' style={{color: '#5b1b11'}}/></div>
-                    <div id='name'>Nikhil Kumar</div>
+                    <div id='name'>Name</div>
                     <div id="arrowIcon" onClick={()=>{setIsMenuOpen(!isMenuOpen)}}>
                         <ArrowDropDownIcon fontSize='medium' style={{color: '#5b1b11'}}/>
                     </div>
@@ -59,16 +59,16 @@ function LoginButtons(props) {
         <div className='header__right'>
             <ColorButton className="loginclass" variant="contained" 
             onClick = {() => {
-            props.setShow(true);
-            props.setForm("Login");
+            dispatch(toggleModal(true));
+            dispatch(FormType("Login"));
             }}>
             Login
             </ColorButton>
 
             <ColorButton className="loginclass" variant="contained" 
             onClick = {() => {
-            props.setShow(true);
-            props.setForm("SignUp");
+            dispatch(toggleModal(true));
+            dispatch(FormType("SignUp"));
             }}>
             Signup
             </ColorButton>

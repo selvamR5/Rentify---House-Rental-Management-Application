@@ -9,11 +9,7 @@ import Sidebar from '../sidebar/Sidebar.js';
 import { Link } from 'react-router-dom';
 import LoginButtons from './LoginButtons';
 
-
 function Navbar() {
-  
-  const [show, setShow] = useState(false);
-  const [form, setForm] = useState("");
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
@@ -21,17 +17,17 @@ function Navbar() {
       <div className = "header">
         <div className='header__left'>
           <MenuIcon className="menu" onClick={() => {setShowSidebar(!showSidebar)}}/>
-          <Link to='/'><img className = "header__logo" src = {img} alt = ""/></Link>
+          <Link to='/'><img className="header__logo" src={img} alt=""/></Link>
         </div>
         
         <div className='header__input'>
-          <input className = "inputsearch" type = "text"  placeholder = "Enter the area or pincode"/>
+          <input className="inputsearch" type="text"  placeholder = "Enter the area or pincode"/>
           <SearchIcon className='header__inputbutton'/>
         </div>
-        <LoginButtons setShow={setShow} setForm={setForm}/>
+        <LoginButtons/>
       </div>
       <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
-      <Modal show={show} setShow={setShow} form={form} setForm={setForm}/>
+      <Modal/>
     </div>
   );
 }

@@ -48,7 +48,7 @@ ul {
   
   /* AddRequestForm Component */
   
-  form {
+.maintenanceForm {
     display: flex;
     flex-direction: column;
     width: 100%;

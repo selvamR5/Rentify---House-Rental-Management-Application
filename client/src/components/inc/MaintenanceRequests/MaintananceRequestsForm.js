@@ -16,7 +16,7 @@ const MaintenanceRequestsForm = ({ onClose }) => {
   };
 
   return (
-    <form>
+    <form className="maintenanceForm">
       <label htmlFor="title">Title</label>
       <input
         type="text"

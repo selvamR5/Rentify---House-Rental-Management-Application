@@ -3,21 +3,27 @@ import React from "react";
 import Form from "./Form";
 import CloseIcon from '@mui/icons-material/Close';
 import "./style.css"
+import { toggleModal } from "../../../redux/modalShow";
+import { useDispatch, useSelector } from "react-redux";
 
 function Modal(props){
-    if(!props.show){
+    const modalShow = useSelector((state) => state.modalShow.value);
+    const formType = useSelector((state) => state.formType.value);
+    const dispatch = useDispatch();
+
+    if(!modalShow){
         return null;
     }
     
     return(
         <div>
-            <div className="modal-backdrop" onClick={() => {props.setShow(false);}}></div>
+            <div className="modal-backdrop" onClick={() => {dispatch(toggleModal(false))}}></div>
             <div className="form">
-                <div className="close" onClick={() => {props.setShow(false);}}>
+                <div className="close" onClick={() => {dispatch(toggleModal(false))}}>
                     <CloseIcon fontSize="large"/>
                 </div>
-                <h2>{props.form}</h2>
-                <Form type={props.form} setType={props.setForm}/>
+                <h2>{formType}</h2>
+                <Form/>
             </div>
         </div>
     );
