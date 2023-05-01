@@ -17,7 +17,7 @@ function DetailedPropertyInfo() {
           price: 3200,
           beds: 2,
           baths: 2,
-          description: "Avalon On The Alameda features 1,2, and 3 bedroom apartment homes and townhomes in San Jose, CA located three blocks from the San Jose Arena. Avalon on the Alameda offers apartments with in unit washer and dryer, spacious walk in closets (select units), and central air conditioning and heating. Upgrade any home to Furnished+ and enjoy the convenience of turnkey living. This pet friendly community also includes a state of the art fitness center and swimming pool, WiFi access, and an on-site Starbucks.",
+          description: "Avalon On The Alameda features 1,2, and 3 bedroom apartment homes and townhomes in San Jose, CA located three blocks from the San Jose Arena. Avalon on the Alameda offers apartments with in unit washer and dryer, spacious walk in closets (select units), and central air conditioning and heating.This pet friendly community also includes a state of the art fitness center and swimming pool, WiFi access, and an on-site Starbucks.",
           rating: 4
         },
     ]

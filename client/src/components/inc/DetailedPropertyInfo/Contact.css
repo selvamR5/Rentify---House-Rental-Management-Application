@@ -35,15 +35,32 @@
   .name-container {
     display: flex;
     justify-content: space-between;
+    
   }
   .description-box {
     height: 100px;
     width: 20vw;
-    /* add any other desired styling properties here */
+ 
   }
 
   .form-control {
     border-color: rgb(203, 180, 180);
   }
+  .col input {
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
   
+  .form-control:focus {
+    outline: none;
+  }
+ 
+
+  input::placeholder {
+    text-align: left;
+    vertical-align: top;
+  }
   
