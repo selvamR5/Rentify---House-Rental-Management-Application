@@ -1,5 +1,6 @@
-import SlidingImages from "./SlidingImages";
+import DescriptionBanner from "./DescriptionBanner.js";
 import Info from "./Info"
+
 
 function DetailedPropertyInfo() {
     const images = [
@@ -10,22 +11,22 @@ function DetailedPropertyInfo() {
       ];
     const apartments = [
         {
-          name: 'Luxury Apartment',
-          address: '123 Main St, Anytown, USA',
+          name: 'Avalon On the Alameda',
+          address: '181 E Santa Clara St, San Jose, CA 95113',
           SquareFeet: '1346 sq ft',
           price: 3200,
           beds: 2,
           baths: 2,
-          description: " This is a Good Apartment"
-
-         
+          description: "Avalon On The Alameda features 1,2, and 3 bedroom apartment homes and townhomes in San Jose, CA located three blocks from the San Jose Arena. Avalon on the Alameda offers apartments with in unit washer and dryer, spacious walk in closets (select units), and central air conditioning and heating. Upgrade any home to Furnished+ and enjoy the convenience of turnkey living. This pet friendly community also includes a state of the art fitness center and swimming pool, WiFi access, and an on-site Starbucks.",
+          rating: 4
         },
     ]
 
     return (
     <div className='DetailedProperty'>
+
         
-      <SlidingImages images={images}/>
+      <DescriptionBanner images={images} description={apartments[0].description}/>
 
     
       {apartments.map((apartment, index) => (
@@ -36,10 +37,16 @@ function DetailedPropertyInfo() {
           price = {apartment.price}
           beds = {apartment.beds}
           baths = {apartment.baths}
-          description = {apartment.description}
+          rating = {apartment.rating}
+
 
         />  
-      ))}             
+        
+      ))}  
+
+      
+      
+                 
     </div>
 
   

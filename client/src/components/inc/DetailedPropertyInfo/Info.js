@@ -1,37 +1,70 @@
 import React from 'react';
-import './Info.css';
-
-const Info = ({ name, address,SquareFeet,price,beds,baths,description}) => {
+import './Info.css'
+import { Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
+import Contact from './Contact';
+import Amenities from './Amenities';
+import { Rating } from '@mui/material';
+import StarIcon from '@mui/icons-material/Star';
+const Info = ({ name, address, SquareFeet, price, beds, baths,rating}) => {
   return (
-    <div className="apartment-details-container">
-      
+   <div className='details-contact'>
+    
+    <div className='apartment-details-container'>
       <div className='Name'>
-        <h2 className='name_info'> {name} </h2>
+        <h2 className='name_info'>{name}</h2>
         <p className='address_info'>{address}</p>
+        <Rating
+      name="star-rating"
+      value={rating}
+      precision={0.5}
+      emptyIcon={<StarIcon style={{ color: 'grey'}} />}
+      icon={<StarIcon style={{ color:'rgb(133, 57, 57)' }} />}
+    />
       </div>
-      <div className='SquareFeet'>
-        <h2 className='SquareFeet_heading'>SquareFeet</h2>
-        <p className='SquareFeet_info'>{SquareFeet}</p>
+      <div className='info-grid'>
+      <Container >
+        <Row >
+          <Col xs={3} className='info'>
+            <h4 className='heading'>SquareFeet</h4>
+            <p className='numbers'>{SquareFeet}</p>
+          </Col>
+          <Col xs={3} className='info'>
+            <h4 className='heading'>Price</h4>
+            <p className='numbers'>{price}</p>
+          </Col>
+          <Col xs={3} className='info'>
+            <h4 className='heading'>Beds</h4>
+            <p className='numbers'>{beds}</p>
+          </Col>
+          <Col xs={3} className='info'>
+            <h4 className='heading'>Baths</h4>
+            <p className='numbers'>{baths}</p>
+          </Col>
+        </Row>
+      </Container>
       </div>
-      <div className='Price'>
-        <h2 className='price_heading'>Price</h2>
-        <p className='price_info'>{price}</p>
-      </div>
-      <div className='Beds'>
-        <h2 className='beds_heading'>Beds</h2>
-        <p className='beds_info'>{beds}</p>
-      </div>
-      <div className='Baths'>
-        <h2 className='Baths_heading'>Baths</h2>
-        <p className='Baths_info'>{baths}</p>
-      </div>
-      <div className='description'>
-        <h2 className='description_heading'>Description</h2>
-        <p className='description_info'>{description}</p>
-      </div>
+   <div className='amenities_list'>
+    <h2>
+      Amenities
+    </h2>
+    <div>
+      <Amenities/>
     
     </div>
+
+   </div>
+    </div>
+    <div className='contact'>
+      <Contact/>
+    </div>
+
+
+    </div>
+
+    
+
   );
-}
+};
 
 export default Info;

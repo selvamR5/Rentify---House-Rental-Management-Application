@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import "./SlidingImages.css"
+import "./DescriptionBanner.css"
 
-const SlidingImages = ({ images }) => {
+const DescriptionBanner = ({ images,description }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -18,6 +18,7 @@ const SlidingImages = ({ images }) => {
   };
 
   return (
+    <div className='descriptionBanner'>
     <div className='sliding-images'>
       <div className='image-container'>
         <img src={images[currentIndex]} alt='Sliding Image' />
@@ -29,7 +30,17 @@ const SlidingImages = ({ images }) => {
         <FaChevronRight />
       </button>
     </div>
+    <div className='description'>
+      <h2 className='about'>
+        About
+      </h2>
+      <p className='description-content'>
+     {description}
+      </p>
+
+    </div>
+    </div>
   );
 };
 
-export default SlidingImages;
+export default DescriptionBanner;

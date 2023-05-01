@@ -30,7 +30,7 @@ function App() {
         <Route path='/manage-rental/documents' element={<Maintenance/>}/>
         <Route path='/add-property' element={<PrivateRoute> <AddPropertyForm/> </PrivateRoute>}/>
         <Route path='/manage-rental/maintenancedashboard' element={<MaintenanceDashboard/>}/>
-        <Route path='/detailed-propertyInfo' element={<DetailedPropertyInfo/>}> </Route> 
+        <Route path='/detailed-propertyInfo' element={<DetailedPropertyInfo/>}> </Route>  
       </Routes>
     </div>
   ); 
