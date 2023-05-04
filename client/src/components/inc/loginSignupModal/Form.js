@@ -77,6 +77,7 @@ function Form() {
         }).then((res) => res.json())
         .then((res) => {
             if (res) {
+                console.log('truehit');
                 dispatch(toggleModal(false));
                 dispatch(change(res.user._id));
             }

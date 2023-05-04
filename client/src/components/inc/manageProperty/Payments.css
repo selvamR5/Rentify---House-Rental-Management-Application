@@ -2,8 +2,10 @@ h1{
   font-family: 'Times New Roman', Times, serif;
   color: rgb(126, 27, 27);
   text-align: center;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
+  /* width: 80%; */
+  
   overflow: hidden;
   padding-top: 1rem;
 }
@@ -64,11 +66,17 @@ h1{
 .payment-page h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  text-align:center;
+  
 }
 
 
 .payment-page .pending-payments {
   margin-bottom: 2rem;
+  align-items: center;
+  
+  
+  
   
 }
 
@@ -142,64 +150,35 @@ grid-template-columns: repeat(3, 1fr);
   
   
 }
-.transactions-container {
+.payment-page .transactions-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
 
- 
-
-
-
-
-.payment-page .previous-transactions button {
-  margin-bottom: 10px;
-}
-
-/* .payment-page .previous-transaction-header {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-weight: bold;
-  margin-bottom: 5px;
-  align-items: center;
-  text-align: center;
-  background-color: #f2f2f2;
+flex-direction: column;
+width: 80%;
+
+padding: 10px;
+margin-bottom: 10px;
+justify-content: center;
+margin-left: 90px;
+
 }
+
  
-.previous-transaction-amount-heading {
-  width: 33%;
-  text-align: center;
-}
 
-.previous-transaction-description-heading {
-  width: 33%;
-  text-align: center;
-}
 
-.previous-transaction-date-heading {
-  width: 33%;
-  text-align: center;
-}
 
-.previous-transaction-amount {
-  width: 33%;
-  text-align: center;
+
+.transactions-container button {
+  align-self:center;
+  margin-bottom: 10px;
   
 }
 
-.previous-transaction-description {
-  width: 33%;
-  text-align: center;
-}
 
-.previous-transaction-date {
-  width:33%;
-  text-align: center;
-}
-  */
   .previous-transaction-header {
       display: grid;
       grid-template-columns: repeat(3, 1fr);

@@ -24,8 +24,10 @@ function Payments({ payments = [{id: 1, amount: 3500, description: "Rent", dueDa
                 <div className="payment-page">
                     
                     <div className="pending-payments">
-                        <h1>Pending Payments</h1>
+                    <h1>Pending Payments</h1>
+                        
                         {payments.map((payment) => (
+                          
                         <div key={payment.id} className="payment">
                             <div className="payment-header">
                                 <div className="payment-amount-heading">Amount</div>
