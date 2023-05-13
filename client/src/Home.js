@@ -10,6 +10,12 @@ function Home() {
 
   return (
     <div className='App'>
+<<<<<<< Updated upstream
+=======
+      {/* <div>Hellpo</div>
+      <input type="file" onChange={handleChange} accept="" />
+      <button onClick={handleUpload}>Upload to Firebase</button> */}
+>>>>>>> Stashed changes
       <div className='app_page'>
         <RecomApartments />
       </div>

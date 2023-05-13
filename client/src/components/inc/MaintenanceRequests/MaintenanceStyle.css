@@ -1,0 +1,71 @@
+
+.maintenance-dashboard {
+    
+    display: flex; 
+
+}
+
+.center-maintenance{
+    margin-top:50px;
+    margin-left: 300px;
+}
+
+  .addnewrequest {
+    background-color: #bc3c3c;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .addnewrequest{
+    top:100;
+
+  }
+  .addnewrequest:hover {
+    background-color: #ae6269;
+  }
+  
+.maintenanceForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  /* label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input{
+    border: 1px solid #863939;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+  textarea {
+    border: 1px solid #863939;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px; 
+  }
+  
+  .addnewrequest[type="submit"] {
+    border-radius: 100px;
+    width: 10vw;
+    margin-top: 10px;
+    background-color:  #bc3c3c;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  } */
+  
+  .addnewrequest[type="submit"]:hover {
+    background-color: #ae6269;
+  }
+   

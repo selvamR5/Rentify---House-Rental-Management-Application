@@ -1,34 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import MaintenanceRequests from "./MaintenanceRequests";
-import MaintenanceRequestsForm from "./MaintananceRequestsForm";
 import Maintenance from "../manageProperty/Maintenance";
-import "./Style.css"
+import "./MaintenanceStyle.css"
 const MaintenanceDashboard = () => {
-  const [showForm, setShowForm] = useState(false);
 
-  const handleAddRequest = () => {
-    setShowForm(true);
-  };
-
-  const handleCloseForm = () => {
-    setShowForm(false);
-  };
 
   return (
     <div className="maintenance-dashboard">
+    <div>
+    <Maintenance />
+  </div>
     
-      <Maintenance />  
     <div className="center-maintenance">
+    <button className= "addnewrequest" >New Request</button>
       
-      {!showForm && <button className= "addnewrequest" onClick={handleAddRequest}>New Request</button>}
-      {showForm ? (
-        <div className="center-form">
-        <MaintenanceRequestsForm onClose={handleCloseForm} />
-        </div>
-      ) : (
-        <MaintenanceRequests />
-      )}  
-        
+      <MaintenanceRequests />
+
       </div>
     </div>
   );

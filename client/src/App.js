@@ -21,7 +21,7 @@ import AccountPage from './components/inc/profile/profile.js';
 function App() {
   return (
     <div>
-      <Navbar />
+    <Navbar />   
       <Chat/>
       <Routes>
         <Route path='/'  element={<Home/>}/>
@@ -36,7 +36,14 @@ function App() {
         <Route path='/detailed-propertyInfo' element={<DetailedPropertyInfo/>}/> 
         <Route path='/profile' element={<AccountPage/>}/>
       </Routes>
+        
+
+     
     </div>
+
+
+
+
   ); 
 }
 

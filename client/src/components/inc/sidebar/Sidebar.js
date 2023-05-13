@@ -4,20 +4,35 @@ import './Sidebar.css';
 import SidebarRow from './SidebarRow';
 
 function Sidebar(props) {
-
-    if(!props.showSidebar){
-        return null;
+    if (!props.showSidebar) {
+      return null;
     }
+  
+    const closeSidebar = () => {
+      props.setShowSidebar(false);
+    };
+  
     return (
-        <div className='sidebar'>
-            <Link to='/'><SidebarRow title = "Home"/></Link>
-            <Link to='/add-property'><SidebarRow title = "Add a property"/></Link>
-            <Link to='/manage-rental'><SidebarRow title = "Manage Property"/></Link>
-            <Link><SidebarRow title = "Tenants portal"/></Link>
-            <Link><SidebarRow title = "Landlords portal"/></Link>
-        </div>
+      <div className="sidebar">
+        <Link to="/" onClick={closeSidebar}>
+          <SidebarRow title="Home" />
+        </Link>
+        <Link to="/add-property" onClick={closeSidebar}>
+          <SidebarRow title="Add a property" />
+        </Link>
+        <Link to="/manage-rental" onClick={closeSidebar}>
+          <SidebarRow title="Manage Property" />
+        </Link>
+        <Link onClick={closeSidebar}>
+          <SidebarRow title="Tenants portal" />
+        </Link>
+        <Link onClick={closeSidebar}>
+          <SidebarRow title="Landlords portal" />
+        </Link>
+      </div>
     );
-}
+  }
+  
 
 export default Sidebar;
 
