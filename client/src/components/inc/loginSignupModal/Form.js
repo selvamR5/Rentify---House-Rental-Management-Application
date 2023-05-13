@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './style.css'
-import { change } from "../../../redux/userId";
+import { changeUserId } from "../../../redux/userId";
 import { toggleModal } from "../../../redux/modalShow";
 import { FormType } from "../../../redux/form";
 
@@ -77,9 +77,9 @@ function Form() {
         }).then((res) => res.json())
         .then((res) => {
             if (res) {
-                console.log('truehit');
+                console.log(res);
                 dispatch(toggleModal(false));
-                dispatch(change(res.user._id));
+                dispatch(changeUserId(res.user._id));
             }
         })
     }

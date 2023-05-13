@@ -6,7 +6,7 @@ export const userIdSlice = createSlice({
         value: ""
     },
     reducers:{
-        change: (state, action) => {
+        changeUserId: (state, action) => {
             state.value = action.payload;
         },
         setDefault: (state) => {
@@ -15,6 +15,6 @@ export const userIdSlice = createSlice({
     }
 });
 
-export const {change, setDefault} = userIdSlice.actions;
+export const {changeUserId, setDefault} = userIdSlice.actions;
 
 export default userIdSlice.reducer;

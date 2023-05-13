@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
+import { app as hello, storage } from "../../../config/firebaseConfig";
+import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
+import { v4 as uuidv4 } from 'uuid';
 import './addProperty.css'
+import { useSelector } from 'react-redux';
 
 
 function AddPropertyForm() {
+    const userId = useSelector((state) => state.userId.value);
+    console.log(userId)
+
     const [address, setAddress] = useState('');
+    const [state, setState] = useState('');
+    const [city, setCity] = useState('');
+    const [zip, setZip] = useState('');
+    const [contact, setContact] = useState('');
     const [propertyType, setPropertyType] = useState('');
     const [beds, setBeds] = useState('');
     const [baths, setBaths] = useState('');
@@ -11,42 +22,81 @@ function AddPropertyForm() {
     const [price, setPrice] = useState('');
     const [photos, setPhotos] = useState([]);
     const [description, setDescription] = useState('');
+    const [file, setFile] = useState("");
     const [formError, setFormError] = useState(false);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         switch (name) {
-        case 'address':
-            setAddress(value);
-            break;
-        case 'propertyType':
-            setPropertyType(value);
-            break;
-        case 'beds':
-            setBeds(value);
-            break;
-        case 'baths':
-            setBaths(value);
-            break;
-        case 'sqft':
-            setSqft(value);
-            break;
-        case 'price':
-            setPrice(value);
-            break;
-        case 'photos':
-            setPhotos(event.target.files);
-            break;
-        case 'description':
-            setDescription(value);
-            break;
-        default:
-            break;
+            case 'address':
+                setAddress(value);
+                break;
+            case 'propertyType':
+                setPropertyType(value);
+                break;
+            case 'beds':
+                setBeds(value);
+                break;
+            case 'baths':
+                setBaths(value);
+                break;
+            case 'sqft':
+                setSqft(value);
+                break;
+            case 'price':
+                setPrice(value);
+                break;
+            case 'photos':
+                setPhotos(event.target.files);
+                break;
+            case 'description':
+                setDescription(value);
+                break;
+            case 'state':
+                setState(value);
+                break;
+            case 'city':
+                setCity(value);
+                break;
+            case 'zip':
+                setZip(value);
+                break;
+            case 'contact':
+                setContact(value);
+                break;
+            default:
+                break;
         }
     };
 
-    const handleSubmit = (event) => {
+
+    // State to store uploaded file
+
+    // Handle file upload event and update state
+    function handleChange(event) {
+        setFile(event.target.files);
+        console.log(file)
+    }
+
+    const handleUploadImage = async () => {
+        console.log('hegllo')
+        let imgUrl = '';
+        console.log(storage)
+        const storageRef = ref(storage, `houserentalmanagement/images/${uuidv4()}`);
+
+        uploadBytes(storageRef, file).then((snapshot) => {
+            console.log('Uploaded a blob or file!');
+            console.log(snapshot)
+            getDownloadURL(snapshot.ref).then((url) => {
+                console.log(url);
+            });
+        });
+    }
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        console.log(file)
+debugger;
         if (
             address.trim() === '' ||
             propertyType.trim() === '' ||
@@ -54,13 +104,65 @@ function AddPropertyForm() {
             baths.trim() === '' ||
             sqft.trim() === '' ||
             price.trim() === '' ||
-            photos.length === 0 ||
             description.trim() === ''
         ) {
             setFormError(true);
             return;
         }
-        // Form submission logic
+
+        console.log(storage)
+        const storageRef = ref(storage, `houserentalmanagement/images/${uuidv4()}`);
+        let img = [];
+        for(let i=0; i<file.length; i++){
+
+        await uploadBytes(storageRef, file[i]).then((snapshot) => {
+            console.log('Uploaded a blob or file!');
+            console.log(snapshot)
+            getDownloadURL(snapshot.ref).then((url) => {
+                img.push(url)
+                console.log(url);
+            });
+        });
+    }
+    console.log(img)
+      await  setPhotos(img);
+console.log(photos)
+        const requestObject = {
+            address: address,
+            state: state,
+            city: city,
+            zip: zip,
+            contact: contact,
+            propertyType: propertyType,
+            bedNo: beds,
+            bathNo: baths,
+            sqft: sqft,
+            rentPrice: price,
+            pictures: photos,
+            description: description
+        };
+
+console.log(requestObject)
+debugger;
+        fetch('http://localhost:3001/property/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestObject)
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Request failed');
+            }
+            return response.json();
+        })
+            .then(data => {
+                alert('Request successful');
+                // Do something with the response data
+            })
+            .catch(error => {
+                alert('Request failed: ' + error.message);
+            });
     };
 
     return (
@@ -74,6 +176,50 @@ function AddPropertyForm() {
                             name="address"
                             className='address'
                             value={address}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="address">State</label>
+                        <input
+                            type="text"
+                            name="state"
+                            className='address'
+                            value={state}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="address">City</label>
+                        <input
+                            type="text"
+                            name="city"
+                            className='address'
+                            value={city}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="address">ZipCode</label>
+                        <input
+                            type="text"
+                            name="zip"
+                            className='address'
+                            value={zip}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="address">Contact</label>
+                        <input
+                            type="text"
+                            name="contact"
+                            className='address'
+                            value={contact}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -135,18 +281,9 @@ function AddPropertyForm() {
                             onChange={handleInputChange}
                         />
                     </div>
-
-                    <div className="form-group">
-                        <label htmlFor="photos">Photos</label>
-                        <input
-                            type="file"
-                            name="photos"
-                            multiple
-                            accept="image/*"
-                            onChange={handleInputChange}
-                        />
-                    </div>
-
+                    <>
+                    <input type="file" onChange={handleChange} accept="" multiple/>
+                     </>
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
                         <textarea
@@ -167,5 +304,5 @@ function AddPropertyForm() {
         </div>
     );
 };
-  
+
 export default AddPropertyForm;

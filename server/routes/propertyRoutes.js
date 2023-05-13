@@ -5,10 +5,13 @@ var Property = require('../models/property');
 
 router.post("/create", (req, res) => {
     const property = new Property(req.body);
+    console.log(req.body)
     property.save((err, newProperty) => {
         if (err) {
+          console.log(err)
             res.status(400).send(err);
         } else {
+            console.log(newProperty)
             res.status(201).send(newProperty);
         }
     });

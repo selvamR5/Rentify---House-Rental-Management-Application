@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PersonIcon from '@mui/icons-material/Person';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Link } from 'react-router-dom';
-import { change} from '../../../redux/userId';
+import { changeUserId} from '../../../redux/userId';
 import { toggleModal } from '../../../redux/modalShow';
 import { FormType } from '../../../redux/form';
 
@@ -31,7 +31,7 @@ function LoginButtons(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     function Logout(){
-        dispatch(change(""));
+        dispatch(changeUserId(""));
         setIsMenuOpen(!isMenuOpen);
     }
 
@@ -40,14 +40,14 @@ function LoginButtons(props) {
             <div>
                 <div className='account'>
                     <div id="personIcon"><PersonIcon fontSize='medium' style={{color: '#5b1b11'}}/></div>
-                    <div id='name'>Name</div>
+                    <div id='name'>Masters</div>
                     <div id="arrowIcon" onClick={()=>{setIsMenuOpen(!isMenuOpen)}}>
                         <ArrowDropDownIcon fontSize='medium' style={{color: '#5b1b11'}}/>
                     </div>
                 </div>
                 {isMenuOpen && (
                     <div className='account-menu'>
-                        <Link to='/'><SidebarRow title = "Profile"/></Link>
+                        <Link to='/profile'><SidebarRow title = "Profile"/></Link>
                         <Link to='/' onClick={Logout}><SidebarRow title = "Log out"/></Link>
                     </div>
                 )}

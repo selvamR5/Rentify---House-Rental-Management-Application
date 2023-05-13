@@ -14,6 +14,8 @@ import Dashboard from './components/inc/manageProperty/Dashboard.js';
 import AddPropertyForm from './components/inc/addProperty/addProperty.js';
 import MaintenanceDashboard from './components/inc/MaintenanceRequests/MaintananceDashboard.js';
 import PrivateRoute from './PrivateRoute.js';
+import AccountPage from './components/inc/profile/profile.js';
+
 
 
 function App() {
@@ -23,7 +25,7 @@ function App() {
       <Chat/>
       <Routes>
         <Route path='/'  element={<Home/>}/>
-        <Route path='/manage-rental' element={ <RentProperty/>}/>
+        <Route path='/manage-rental' element={ <PrivateRoute> <RentProperty/> </PrivateRoute>}/>
         <Route path='/manage-rental/dashboard' element={<Dashboard/>}/>
         <Route path='/manage-rental/payments' element={<Payments/>}/>
         <Route path='/manage-rental/maintenance' element={<Maintenance/>}/>
@@ -32,6 +34,7 @@ function App() {
         <Route path='/add-property' element={<PrivateRoute> <AddPropertyForm/> </PrivateRoute>}/>
         <Route path='/manage-rental/maintenancedashboard' element={<MaintenanceDashboard/>}/>
         <Route path='/detailed-propertyInfo' element={<DetailedPropertyInfo/>}/> 
+        <Route path='/profile' element={<AccountPage/>}/>
       </Routes>
     </div>
   ); 
