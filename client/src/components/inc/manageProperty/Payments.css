@@ -74,6 +74,19 @@ h1{
 .payment-page .pending-payments {
   margin-bottom: 2rem;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+flex-direction: column;
+width: 80%;
+
+padding: 10px;
+margin-bottom: 10px;
+
+margin-left: 90px;
   
   
   
@@ -89,7 +102,7 @@ border-radius: 0.5rem;
 padding: 10px;
 margin-bottom: 10px;
 justify-content: center;
-margin-left: 90px;
+/* margin-left: 90px; */
 
 }
 .payment button{
@@ -120,7 +133,7 @@ border-radius: 0.5rem;
 padding: 10px;
 margin-bottom: 10px;
 justify-content: center;
-margin-left: 10px;
+
 
 }
 
