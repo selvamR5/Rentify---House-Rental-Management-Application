@@ -87,4 +87,27 @@ router.get("/get/all", (req, res) => {
     });
   });
 
+  router.get("/get/tenant/:tenantId", async (req, res) => {
+    try {
+        const properties = await Property.find({ tenant: req.params.tenantId });
+        // res.json(properties);
+        res.status(200).send(properties)
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+});
+
+router.get("/get/landlord/:landlordId", async (req, res) => {
+  console.log(req.params.landlordId)
+    try {
+        const leases = await Property.find({ landlord: req.params.landlordId });
+        console.log('leases',leases)
+        // res.json(leases);
+        res.status(200).send(leases)
+
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+});
+
 module.exports = router;
