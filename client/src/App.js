@@ -6,7 +6,7 @@ import Home from './Home.js'
 import Navbar from './components/inc/navbar/Navbar.js';
 import Maintenance from './components/inc/manageProperty/Maintenance.js'
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import RentProperty from './components/inc/manageProperty/RentProperty.js';
 import TenantProperty from './components/inc/manageProperty/TenantProperty.js';
 import DetailedPropertyInfo from './components/inc/DetailedPropertyInfo/DetailedPropertyInfo.js';
@@ -16,19 +16,22 @@ import AddPropertyForm from './components/inc/addProperty/addProperty.js';
 import MaintenanceDashboard from './components/inc/MaintenanceRequests/MaintananceDashboard.js';
 import PrivateRoute from './PrivateRoute.js';
 import AccountPage from './components/inc/profile/profile.js';
+import SearchPage from './components/inc/SearchPage/SearchPage.js';
 
 
 
 function App() {
   return (
     <div>
-    <Navbar />   
+      <Navbar />   
       <Chat/>
+      {/* <Router> */}
       <Routes>
         <Route path='/'  element={<Home/>}/>
         <Route path='/manage-rental-renter' element={ <PrivateRoute> <RentProperty/> </PrivateRoute>}/>
         <Route path='/manage-rental-tenant' element={ <PrivateRoute> <TenantProperty/> </PrivateRoute>}/>
         <Route path='/manage-rental/dashboard' element={<Dashboard/>}/>
+        <Route path='/search/:value' element={<SearchPage/>}/>
         <Route path='/manage-rental/payments' element={<Payments/>}/>
         <Route path='/manage-rental/maintenance' element={<Maintenance/>}/>
         <Route path='/manage-rental/chat' element={<Maintenance/>}/>
@@ -38,7 +41,7 @@ function App() {
         <Route path='/detailed-propertyInfo' element={<DetailedPropertyInfo/>}/> 
         <Route path='/profile' element={<AccountPage/>}/>
       </Routes>
-        
+      {/* </Router> */}
 
      
     </div>
