@@ -45,15 +45,17 @@ const ManageProperty = () => {
             var bedBath = `${property.bedNo} Beds, ${property.bathNo} bath`;
             var price = `$ ${property.rentPrice}`;
             var propertyInfoURL=`/detailed-propertyInfo/${property._id}`
+            var title= `${property.title}`
+            var images= `${property.pictures[0]}`
 
             propertyCards.push(
                 <>
                     <Grid item xs={12} md={6} lg={4}>
                         <Link to={propertyInfoURL} key={property._id}>
                             <Card
-                                src="https://a0.muscache.com/im/pictures/miso/Hosting-740807800483774592/original/6491cdaf-0dfa-46ad-b93a-a3f05382cbb1.jpeg?im_w=720"
+                                src={images}
                                 address={address}
-                                title="Avalon On the Alameda"
+                                title={title}
                                 beds={bedBath}
                                 price={price}
                             />

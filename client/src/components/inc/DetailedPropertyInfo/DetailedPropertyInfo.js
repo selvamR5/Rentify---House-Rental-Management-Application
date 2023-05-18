@@ -35,20 +35,20 @@ function DetailedPropertyInfo() {
   function renderPropInfo() {
     var apartment =
     {
-      name: 'Avalon On the Alameda',
+      name: `${property.title}`,
       address: `${property.address}, ${property.city}, ${property.state}, ${property.zip}`,
       // address: '181 E Santa Clara St, San Jose, CA 95113',
-      SquareFeet: '1346 sq ft',
+      SquareFeet: `${property.sqft}`,
       price: 3200,
-      beds: 2,
-      baths: 2,
-      description: "Avalon On The Alameda features 1,2, and 3 bedroom apartment homes and townhomes in San Jose, CA located three blocks from the San Jose Arena. Avalon on the Alameda offers apartments with in unit washer and dryer, spacious walk in closets (select units), and central air conditioning and heating.This pet friendly community also includes a state of the art fitness center and swimming pool, WiFi access, and an on-site Starbucks.",
-      rating: 4
+      beds: `${property.bedNo}`,
+      baths: `${property.bathNo}`,
+      description: `${property.description}`,
+      rating: 4.5
     }
 
     return (
       <>
-        <DescriptionBanner images={images} description={apartment.description} />
+        <DescriptionBanner images={property.pictures} description={apartment.description} />
         <Info
           name={apartment.name}
           address={apartment.address}
