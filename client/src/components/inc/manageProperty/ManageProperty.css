@@ -1,0 +1,42 @@
+.tab-container {
+    display: flex;
+    justify-content: center;
+}
+
+.tab-button {
+    border: none;
+    background-color: white;
+    padding: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.tab-button.active {
+    color: #D60001;
+    font-weight: bold;
+    border-bottom: 2px solid #D60001;
+    background-color: white;
+}
+
+.tab-content {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.title{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    font-weight:bold;
+    color: rgb(126, 27, 27);
+    text-align: center;
+    margin: 25px auto;
+}
+
+.rentHomes{
+    width: 80%;
+    margin: auto;
+}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { app as hello, storage } from "../../../config/firebaseConfig";
+import { app as  storage } from "../../../config/firebaseConfig";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { v4 as uuidv4 } from 'uuid';
 import './addProperty.css'
@@ -79,7 +79,7 @@ function AddPropertyForm() {
     }
 
     const handleUploadImage = async () => {
-        console.log('hegllo')
+        console.log('hello')
         let imgUrl = '';
         console.log(storage)
         const storageRef = ref(storage, `houserentalmanagement/images/${uuidv4()}`);
@@ -96,7 +96,7 @@ function AddPropertyForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log(file)
-debugger;
+        debugger;
         if (
             address.trim() === '' ||
             propertyType.trim() === '' ||
@@ -113,20 +113,20 @@ debugger;
         console.log(storage)
         const storageRef = ref(storage, `houserentalmanagement/images/${uuidv4()}`);
         let img = [];
-        for(let i=0; i<file.length; i++){
+        for (let i = 0; i < file.length; i++) {
 
-        await uploadBytes(storageRef, file[i]).then((snapshot) => {
-            console.log('Uploaded a blob or file!');
-            console.log(snapshot)
-            getDownloadURL(snapshot.ref).then((url) => {
-                img.push(url)
-                console.log(url);
+            await uploadBytes(storageRef, file[i]).then((snapshot) => {
+                console.log('Uploaded a blob or file!');
+                console.log(snapshot)
+                getDownloadURL(snapshot.ref).then((url) => {
+                    img.push(url)
+                    console.log(url);
+                });
             });
-        });
-    }
-    console.log(img)
-      await  setPhotos(img);
-console.log(photos)
+        }
+        console.log(img)
+        await setPhotos(img);
+        console.log(photos)
         const requestObject = {
             address: address,
             state: state,
@@ -142,8 +142,8 @@ console.log(photos)
             description: description
         };
 
-console.log(requestObject)
-debugger;
+        console.log(requestObject)
+        debugger;
         fetch('http://localhost:3001/property/create', {
             method: 'POST',
             headers: {
@@ -281,9 +281,10 @@ debugger;
                             onChange={handleInputChange}
                         />
                     </div>
-                    <>
-                    <input type="file" onChange={handleChange} accept="" multiple/>
-                     </>
+                    <div className="form-group">
+                        <label>Photos</label>
+                        <input type="file" onChange={handleChange} accept="" multiple />
+                    </div>
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
                         <textarea

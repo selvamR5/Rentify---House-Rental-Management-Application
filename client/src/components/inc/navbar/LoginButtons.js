@@ -31,16 +31,20 @@ function LoginButtons(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     function Logout(){
+        localStorage.removeItem('userDetails')
         dispatch(changeUserId(""));
         setIsMenuOpen(!isMenuOpen);
     }
 
     if(userId){
+        var userData = localStorage.getItem('userDetails');
+        userData = JSON.parse(userData);
+
         return(
             <div>
                 <div className='account'>
                     <div id="personIcon"><PersonIcon fontSize='medium' style={{color: '#5b1b11'}}/></div>
-                    <div id='name'>Masters</div>
+                    <div id='name'>{userData['user']['FirstName']}</div>
                     <div id="arrowIcon" onClick={()=>{setIsMenuOpen(!isMenuOpen)}}>
                         <ArrowDropDownIcon fontSize='medium' style={{color: '#5b1b11'}}/>
                     </div>

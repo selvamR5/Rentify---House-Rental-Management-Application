@@ -5,6 +5,7 @@ import { changeUserId } from "../../../redux/userId";
 import { toggleModal } from "../../../redux/modalShow";
 import { FormType } from "../../../redux/form";
 
+
 function Field(props) {
     return (
         <div className={props.className}>
@@ -43,7 +44,9 @@ function Form() {
         const user = {
             emailId: email,
             password: password,
-            name: firstName,
+            firstName: firstName,
+            lastName: lastName,
+            phoneNumber: phone,
         }
         fetch('http://localhost:3001/users/create/profile', {
             method: 'POST',
@@ -77,6 +80,7 @@ function Form() {
         }).then((res) => res.json())
         .then((res) => {
             if (res) {
+                localStorage.setItem('userDetails', JSON.stringify(res));
                 console.log(res);
                 dispatch(toggleModal(false));
                 dispatch(changeUserId(res.user._id));
