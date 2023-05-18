@@ -35,11 +35,12 @@ function SearchPage() {
             var address = `${property.address}, ${property.city}, ${property.state}, ${property.zip}`;
             var bedBath = `${property.bedNo} Beds, ${property.bathNo} bath`;
             var price = `$ ${property.rentPrice}`;
+            var propertyInfoURL = `/detailed-propertyInfo/${property._id}`
 
             propertyCards.push(
                 <>
                     <Grid item xs={12} md={6} lg={4}>
-                        <Link to='detailed-propertyInfo'>
+                        <Link to={propertyInfoURL} key={property._id}>
                             <Card
                                 src="https://a0.muscache.com/im/pictures/miso/Hosting-740807800483774592/original/6491cdaf-0dfa-46ad-b93a-a3f05382cbb1.jpeg?im_w=720"
                                 address={address}
