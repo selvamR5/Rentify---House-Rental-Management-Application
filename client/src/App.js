@@ -6,9 +6,7 @@ import Home from './Home.js'
 import Navbar from './components/inc/navbar/Navbar.js';
 import Maintenance from './components/inc/manageProperty/Maintenance.js'
 import './App.css';
-import { Routes, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import RentProperty from './components/inc/manageProperty/RentProperty.js';
-import TenantProperty from './components/inc/manageProperty/TenantProperty.js';
+import { Routes, Route } from 'react-router-dom';
 import DetailedPropertyInfo from './components/inc/DetailedPropertyInfo/DetailedPropertyInfo.js';
 import Payments from './components/inc/manageProperty/Payments.js';
 import Dashboard from './components/inc/manageProperty/Dashboard.js';
@@ -17,6 +15,7 @@ import MaintenanceDashboard from './components/inc/MaintenanceRequests/Maintanan
 import PrivateRoute from './PrivateRoute.js';
 import AccountPage from './components/inc/profile/profile.js';
 import SearchPage from './components/inc/SearchPage/SearchPage.js';
+import ManageProperty from './components/inc/manageProperty/ManageProperty.js';
 
 
 
@@ -28,8 +27,7 @@ function App() {
       {/* <Router> */}
       <Routes>
         <Route path='/'  element={<Home/>}/>
-        <Route path='/manage-rental-renter' element={ <PrivateRoute> <RentProperty/> </PrivateRoute>}/>
-        <Route path='/manage-rental-tenant' element={ <PrivateRoute> <TenantProperty/> </PrivateRoute>}/>
+        <Route path='/manage-property' element={ <PrivateRoute> <ManageProperty/> </PrivateRoute>}/>
         <Route path='/manage-rental/dashboard' element={<Dashboard/>}/>
         <Route path='/search/:value' element={<SearchPage/>}/>
         <Route path='/manage-rental/payments' element={<Payments/>}/>

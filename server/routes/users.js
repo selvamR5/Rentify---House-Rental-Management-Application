@@ -13,9 +13,10 @@ router.post("/create/profile", (req, res) => {
 console.log("reqqqqq",req.body)
   const newUser = User({
     Email: req.body.emailId,
-    FirstName: req.body.firstname,
-    Lastname: req.body.lastName,
-    Password: bcrypt.hashSync(req.body.password, salt)
+    FirstName: req.body.firstName,
+    LastName: req.body.lastName,
+    Password: bcrypt.hashSync(req.body.password, salt),
+    PhoneNumber: req.body.phoneNumber,
   })
 
   newUser.save().then((document) => {

@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import "./profile.css"
 
 const AccountPage = () => {
-  const [email, setEmail] = useState("example@mail.com");
-  const [password, setPassword] = useState("********");
-  const [firstName, setFirstName] = useState("John");
-  const [lastName, setLastName] = useState("Doe");
-  const [mobile, setMobile] = useState("+1 1234567890");
+
+  var userData = localStorage.getItem('userDetails');
+  userData = JSON.parse(userData);
+
+  const [email, setEmail] = useState(userData['user']['Email']);
+  const [password, setPassword] = useState(userData['user']['Password']);
+  const [firstName, setFirstName] = useState(userData['user']['FirstName']);
+  const [lastName, setLastName] = useState(userData['user']['LastName']);
+  const [mobile, setMobile] = useState(userData['user']['PhoneNumber']);
 
   const handleEmailChange = () => {
     document.getElementById("email-field").removeAttribute("disabled");
