@@ -41,6 +41,26 @@ router.get("/get/all", (req, res) => {
     });
   });
 
+  router.get("/find/:query", (req, res) =>{
+    const { query } = req.params;
+    console.log('inside the find', query)
+  // Perform the search query on the property collection
+  Property.find({
+    $or: [
+      { city: { $regex: query, $options: 'i' } },
+      { zip: { $regex: query, $options: 'i' } },
+    ],
+  })
+    .then((properties) => {
+      console.log('found these', properties)
+      res.json(properties);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: 'An error occurred' });
+    });
+  })
+
   // Update a property by ID
   router.put("/update/:id", (req, res) => {
     Property.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedProperty) => {
