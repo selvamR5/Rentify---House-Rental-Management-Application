@@ -10,10 +10,6 @@ function Home() {
 
   return (
     <div className='App'>
-      {/* <div>Hellpo</div>
-      <input type="file" onChange={handleChange} accept="" />
-      <button onClick={handleUpload}>Upload to Firebase</button> */}
-
       <div className='app_page'>
         <RecomApartments />
       </div>
