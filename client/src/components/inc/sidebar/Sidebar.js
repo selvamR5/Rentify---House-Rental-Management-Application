@@ -30,13 +30,17 @@ function Sidebar(props) {
         <Link to="/add-property" onClick={closeSidebar}>
           <SidebarRow title="Add a property" />
         </Link>
-        <Link to="/manage-rental" onClick={closeSidebar} onMouseEnter={handleMouseEnter}
+        <Link onClick={closeSidebar} onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
           <SidebarRow title="Manage Property" />
           {isHovered && (
           <>
-            <SidebarRow title="Manage house - Renter" />
-            <SidebarRow title="Manage house - Tenant" />
+            <Link to="/manage-rental-renter" onClick ={closeSidebar}>
+              <SidebarRow title="Renter" />
+              </Link>
+            <Link to="/manage-rental-tenant" onClick ={closeSidebar}>
+            <SidebarRow title="Tenant" />
+            </Link>
           </>
         )}
         </Link>

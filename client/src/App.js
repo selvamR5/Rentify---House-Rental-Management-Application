@@ -8,6 +8,7 @@ import Maintenance from './components/inc/manageProperty/Maintenance.js'
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import RentProperty from './components/inc/manageProperty/RentProperty.js';
+import TenantProperty from './components/inc/manageProperty/TenantProperty.js';
 import DetailedPropertyInfo from './components/inc/DetailedPropertyInfo/DetailedPropertyInfo.js';
 import Payments from './components/inc/manageProperty/Payments.js';
 import Dashboard from './components/inc/manageProperty/Dashboard.js';
@@ -25,7 +26,8 @@ function App() {
       <Chat/>
       <Routes>
         <Route path='/'  element={<Home/>}/>
-        <Route path='/manage-rental' element={ <PrivateRoute> <RentProperty/> </PrivateRoute>}/>
+        <Route path='/manage-rental-renter' element={ <PrivateRoute> <RentProperty/> </PrivateRoute>}/>
+        <Route path='/manage-rental-tenant' element={ <PrivateRoute> <TenantProperty/> </PrivateRoute>}/>
         <Route path='/manage-rental/dashboard' element={<Dashboard/>}/>
         <Route path='/manage-rental/payments' element={<Payments/>}/>
         <Route path='/manage-rental/maintenance' element={<Maintenance/>}/>
