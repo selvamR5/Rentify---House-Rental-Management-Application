@@ -1,17 +1,71 @@
 import "../recom_apartments/Card.css"
 import "./ManageProperty.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import Card from "../recom_apartments/Card";
 
 const ManageProperty = () => {
     const [activeTab, setActiveTab] = useState('Tenant');
+    const [properties, setProperties] = useState([]);
+
+    useEffect(() => {
+        var type = '';
+        if(activeTab == 'Tenant'){
+            type='tenant'
+        } else type = 'landlord'
+
+        // Fetch properties from the backend API
+        fetch(`http://localhost:3001/property/get/${type}/60a8f84e3e8f712d78a1b9c1`)
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response)
+                setProperties(response);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
+        
+    }, [activeTab]);
 
     const handleTabClick = (tabName) => {
         
         setActiveTab(tabName);
     };
+
+    function renderProperties() {
+        var propertyCards = [];
+        console.log('properties', properties[0])
+
+        for (var i = 0; i < properties.length; i++) {
+            var property = properties[i];
+            console.log('property', property)
+            var address = `${property.address}, ${property.city}, ${property.state}, ${property.zip}`;
+            var bedBath = `${property.bedNo} Beds, ${property.bathNo} bath`;
+            var price = `$ ${property.rentPrice}`;
+
+            propertyCards.push(
+                <>
+                    <Grid item xs={12} md={6} lg={4}>
+                        <Link to='detailed-propertyInfo'>
+                            <Card
+                                src="https://a0.muscache.com/im/pictures/miso/Hosting-740807800483774592/original/6491cdaf-0dfa-46ad-b93a-a3f05382cbb1.jpeg?im_w=720"
+                                address={address}
+                                title="Avalon On the Alameda"
+                                beds={bedBath}
+                                price={price}
+                            />
+                        </Link>
+                    </Grid >
+
+                </>
+            )
+
+        }
+        console.log(propertyCards)
+        return propertyCards;
+    }
 
     return (
         <div>
@@ -31,7 +85,19 @@ const ManageProperty = () => {
                 </button>
             </div>
 
-            {activeTab === 'Tenant' &&
+            <div className='rentHomes'>
+                {properties.length > 0 ? (
+                    <Grid container spacing={1}>
+                        {renderProperties()}
+                    </Grid>
+                ) : (
+                    <>
+                        <h2>No results found</h2>
+                    </>
+                )}
+            </div>
+
+            {/* {activeTab === 'Tenant' &&
                 <div className="rentHomes">
                     <Grid container spacing={1}>
                         <Grid item xs={12} md={6} lg={4}>
@@ -60,7 +126,7 @@ const ManageProperty = () => {
                             </Link>
                         </Grid>
                     </Grid>
-                </div>}
+                </div>} */}
         </div>
     );
 };

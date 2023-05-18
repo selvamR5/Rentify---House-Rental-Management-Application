@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import '../../inc/recom_apartments/RecomApartments.css';
 import Card from "../../inc/recom_apartments/Card";
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Navbar from '../navbar/Navbar';
 import axios from 'axios';
 import { Grid } from "@mui/material";
-import "../manageProperty/RentProperty.css"
+// import "../manageProperty/RentProperty.css"
 
 function SearchPage() {
 
