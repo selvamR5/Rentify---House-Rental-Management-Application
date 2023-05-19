@@ -44,7 +44,7 @@ const ManageProperty = () => {
             var address = `${property.address}, ${property.city}, ${property.state}, ${property.zip}`;
             var bedBath = `${property.bedNo} Beds, ${property.bathNo} bath`;
             var price = `$ ${property.rentPrice}`;
-            var propertyInfoURL=`/detailed-propertyInfo/${property._id}`
+            var propertyInfoURL=`/manage-rental/dashboard`
             var title= `${property.title}`
             var images= `${property.pictures[0]}`
 
