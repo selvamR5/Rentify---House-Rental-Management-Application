@@ -81,6 +81,7 @@ function Form() {
         .then((res) => {
             if (res) {
                 localStorage.setItem('userDetails', JSON.stringify(res));
+                localStorage.setItem('userId', res['user']['_id'])
                 console.log(res);
                 dispatch(toggleModal(false));
                 dispatch(changeUserId(res.user._id));

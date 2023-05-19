@@ -32,6 +32,7 @@ function LoginButtons(props) {
 
     function Logout(){
         localStorage.removeItem('userDetails')
+        localStorage.removeItem('userId')
         dispatch(changeUserId(""));
         setIsMenuOpen(!isMenuOpen);
     }

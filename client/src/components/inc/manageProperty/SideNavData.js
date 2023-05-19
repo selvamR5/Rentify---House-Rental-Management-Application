@@ -34,6 +34,6 @@ export const SideNavData = [
     {
         title: "Back to Residences",
         icon: <HomeWorkIcon />,
-        link: "/manage-rental"
+        link: "/manage-property"
     }
 ]

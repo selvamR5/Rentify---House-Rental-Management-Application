@@ -4,19 +4,21 @@ import { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import Card from "../recom_apartments/Card";
+import { useSelector } from "react-redux";
 
 const ManageProperty = () => {
     const [activeTab, setActiveTab] = useState('Tenant');
     const [properties, setProperties] = useState([]);
+    const userId = useSelector((state) => state.userId.value);
 
     useEffect(() => {
         var type = '';
-        if(activeTab == 'Tenant'){
+        if(activeTab === 'Tenant'){
             type='tenant'
         } else type = 'landlord'
 
         // Fetch properties from the backend API
-        fetch(`http://localhost:3001/property/get/${type}/60a8f84e3e8f712d78a1b9c1`)
+        fetch(`http://localhost:3001/property/get/${type}/${userId}`)
             .then((response) => response.json())
             .then((response) => {
                 console.log(response)
