@@ -23,6 +23,7 @@ router.get("/get/all", (req, res) => {
       if (err) {
         res.status(400).send(err);
       } else {
+        console.log('hii')
         res.status(200).send(properties);
       }
     });
