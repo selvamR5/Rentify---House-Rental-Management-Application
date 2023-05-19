@@ -8,35 +8,29 @@ import "../loginSignupModal/style.css";
 import Sidebar from '../sidebar/Sidebar.js';
 import { Link } from 'react-router-dom';
 import LoginButtons from './LoginButtons';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import SearchPage from '../SearchPage/SearchPage';
+
 
 function Navbar() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [searchString, setSearchString] = useState('');
-  const [redirectToResult, setRedirectToResult] = useState(false);
+  const navigate = useNavigate();
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter' && searchString != null & searchString.length >= 3) {
       // Call your function here
       console.log(searchString)
+      var val = searchString;
+      setSearchString('')
       console.log('Enter key pressed!');
-      setRedirectToResult(true);
-      // return <Navigate to={`/search/${searchString}`} />;
-      // window.location.ref=`/search/${searchString}`
-
+      navigate(`/search/${searchString}`)
     }
   };
 
   const handleChange = (event) => {
     setSearchString(event.target.value);
   };
-
-  if (redirectToResult) {
-    // Redirect to the result page with the input value
-    return <Navigate to={`/search/${searchString}`} />;
-  }
-
 
   return (
     <div>
@@ -53,7 +47,7 @@ function Navbar() {
             value={searchString}
             onKeyDown={handleKeyPress}
             onChange={handleChange}
-            // {(e) => setSearchString(e.target.value)}
+          // {(e) => setSearchString(e.target.value)}
           />
           <SearchIcon className='header__inputbutton' />
         </div>
